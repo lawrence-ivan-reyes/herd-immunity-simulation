@@ -3,9 +3,8 @@ class Virus(object):
     def __init__(self, name, repro_rate, mortality_rate):
         # Define the attributes of your your virus
         self.name = name
-        # TODO Define the other attributes of Virus
-        pass
-
+        self.repro_rate = repro_rate
+        self.mortality_rate = mortality_rate
 
 # Test this class
 if __name__ == "__main__":
@@ -15,3 +14,5 @@ if __name__ == "__main__":
     assert virus.name == "HIV"
     assert virus.repro_rate == 0.8
     assert virus.mortality_rate == 0.3
+
+    # i will include my tests in virus_test.py
