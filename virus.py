@@ -15,4 +15,12 @@ if __name__ == "__main__":
     assert virus.repro_rate == 0.8
     assert virus.mortality_rate == 0.3
 
-    # i will include my tests in virus_test.py
+    virus = Virus("Ebola", 0.3, 0.65)
+    assert virus.name == "Ebola"
+    assert virus.repro_rate == 0.3
+    assert virus.mortality_rate == 0.65
+
+    virus = Virus("Chicken Pox", 0.73, 0.05)
+    assert virus.name == "Chicken Pox"
+    assert virus.repro_rate == 0.73
+    assert virus.mortality_rate == 0.05
