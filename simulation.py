@@ -36,10 +36,6 @@ class Simulation(object):
         return False
 
     def run(self):
-        # This method starts the simulation. It should track the number of 
-        # steps the simulation has run and check if the simulation should 
-        # continue at the end of each step. 
-
         time_step_counter = 0
         should_continue = True
 
