@@ -82,3 +82,4 @@ if __name__ == "__main__":
     print("\nInfection Rate Check:")
     print(f"Infected: {infected_count} people")
     print(f"Uninfected: {uninfected_count} people")
+    print(f"Percentage Infected: {infected_count / len(uninfected_count):.2f}")
