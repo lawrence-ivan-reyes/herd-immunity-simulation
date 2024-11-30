@@ -75,9 +75,6 @@ class Simulation(object):
             self.logger.log_interaction(infected_person, random_person, True)
 
     def _infect_newly_infected(self):
-        # TODO: Call this method at the end of every time step and infect each Person.
-        # TODO: Once you have iterated through the entire list of self.newly_infected, remember
-        # to reset self.newly_infected back to an empty list.
         for person in self.newly_infected:
             person.infection = self.virus
         self.newly_infected = []
