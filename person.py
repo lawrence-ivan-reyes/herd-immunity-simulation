@@ -43,7 +43,7 @@ if __name__ == "__main__":
     assert infected_person.infection == virus
 
     people = []
-    for i in range(1, 100):
+    for i in range(1, 101):
         people.append(Person(i, False, virus))
 
     for person in people:
@@ -62,15 +62,23 @@ if __name__ == "__main__":
     print(f"Number of people who did not survive: {did_not_survive}")
 
     # Stretch challenge! 
-    uninfected_people = [Person(i + 101, False) for i in range(100)] # make another 100 ppl
-
+    uninfected_people = []
+    for i in range (101, 201): # make another 100 ppl
+        person = Person(i, False)
+        uninfected_people.append(person)
+    
     for person in uninfected_people:
-        if random.random() < virus.spread_rate:
+        if random.random() < virus.repro_rate:
             person.infection = virus
 
-    # count infected & uninfected ppl from this group of ppl
-    infected_count = sum(1 for person in uninfected_people if person.infection is None)
-    uninfected_count = len(uninfected_people) - infected_count
+    infected_count = 0
+    uninfected_count = 0
+    for person in uninfected_people:
+        if person.infection is not None:
+            infected_count += 1
+        else:
+            uninfected_count += 1
 
-    print(f"Number of people infected: {infected_count}")
-    print(f"Number of people uninfected: {uninfected_count}")
+    print("\nInfection Rate Check:")
+    print(f"Infected: {infected_count} people")
+    print(f"Uninfected: {uninfected_count} people")
