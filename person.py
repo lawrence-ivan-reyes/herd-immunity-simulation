@@ -13,12 +13,12 @@ class Person(object):
         if self.infection is None:
             return True
         
-        survival_chance = random.random() # to generate number b/w 0.0 & 1.0
-        if survival_chance < self.infection.mortality_rate:
+        if random.random() < self.infection.mortality_rate:
             self.is_alive = False
-            return False # means they died
+            self.infection = None
+            return False
         else:
-            self.is_vaccinated = True 
+            self.is_vaccinated = True
             self.infection = None
             return True
         
@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     unvaccinated_person = Person(2, False)
     assert unvaccinated_person._id == 2
-    assert unvaccinated_person.is_alive is False
+    assert unvaccinated_person.is_alive is True
     assert unvaccinated_person.is_vaccinated is False
     assert unvaccinated_person.infection is None
 
@@ -53,33 +53,22 @@ if __name__ == "__main__":
     did_not_survive = 0
 
     for person in people:
-        if person.is_alive:
+        if person.did_survive_infection():
             did_survive += 1
         else:
             did_not_survive += 1
 
-    print(f"Number of people who survived: {did_survive}")
-    print(f"Number of people who did not survive: {did_not_survive}")
+print(f"Survived: {did_survive}, Did not survive: {did_not_survive}")
+print(f"Mortality rate: {virus.mortality_rate}, Approx deaths: {did_not_survive / len(people):.2f}")
 
-    # Stretch challenge! 
-    uninfected_people = []
-    for i in range (101, 201): # make another 100 ppl
-        person = Person(i, False)
-        uninfected_people.append(person)
-    
-    for person in uninfected_people:
-        if random.random() < virus.repro_rate:
-            person.infection = virus
+# Stretch challenge! 
+uninfected_people = [Person(i, False) for i in range(101, 201)]
+newly_infected = 0
 
-    infected_count = 0
-    uninfected_count = 0
-    for person in uninfected_people:
-        if person.infection is not None:
-            infected_count += 1
-        else:
-            uninfected_count += 1
+for person in uninfected_people:
+    if random.random() < virus.infection_rate:
+        person.infection = virus
+        newly_infected += 1
 
-    print("\nInfection Rate Check:")
-    print(f"Infected: {infected_count} people")
-    print(f"Uninfected: {uninfected_count} people")
-    print(f"Percentage Infected: {infected_count / len(uninfected_count):.2f}")
+print(f"Newly Infected: {newly_infected}, Not Infected: {len(uninfected_people) - newly_infected}")
+print(f"Infection rate: {virus.infection_rate}, Approx infections: {newly_infected / len(uninfected_people):.2f}")
