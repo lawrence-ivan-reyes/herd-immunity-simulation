@@ -20,7 +20,7 @@ class Simulation(object):
         infected_count = 0
 
         for i in range(self.pop_size):
-            if infected_count < initial_infected:
+            if infected_count < self.initial_infected:
                 person = Person(i, False, self.virus)
                 infected_count += 1
             else:
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     initial_infected = 10
 
     # Make a new instance of the imulation
-    virus = Virus(virus, pop_size, vacc_percentage, initial_infected)
-    sim = Simulation(pop_size, vacc_percentage, initial_infected, virus)
+    # virus = Virus(virus, pop_size, vacc_percentage, initial_infected)
+    sim = Simulation(virus, pop_size, vacc_percentage, initial_infected)
 
     sim.run()
