@@ -4,7 +4,6 @@ from person import Person
 from logger import Logger
 from virus import Virus
 
-
 class Simulation(object):
     def __init__(self, virus, pop_size, vacc_percentage, initial_infected=1):
         self.virus = virus
@@ -77,7 +76,6 @@ class Simulation(object):
             person.infection = self.virus
         self.newly_infected = []
 
-
 if __name__ == "__main__":
     # Test your simulation here
     virus_name = "Sniffles"
@@ -92,6 +90,6 @@ if __name__ == "__main__":
 
     # Make a new instance of the imulation
     # virus = Virus(virus, pop_size, vacc_percentage, initial_infected)
-    sim = Simulation(pop_size, vacc_percentage, initial_infected, virus)
+    sim = Simulation(virus, pop_size, vacc_percentage, initial_infected)
 
     sim.run()

@@ -1,7 +1,6 @@
 import random
 from virus import Virus
 
-
 class Person(object):
     def __init__(self, _id, is_vaccinated, infection = None):
         self._id = _id  
@@ -10,17 +9,18 @@ class Person(object):
         self.is_alive = True
 
     def did_survive_infection(self):
-        if self.infection is None:
-            return True
-        
-        if random.random() < self.infection.mortality_rate:
-            self.is_alive = False
-            self.infection = None
-            return False
-        else:
-            self.is_vaccinated = True
-            self.infection = None
-            return True
+        if self.infection:
+            mortality_rate = self.infection.mortality_rate
+            survival_chance = random.random() 
+            if survival_chance < mortality_rate:
+                self.is_alive = False
+                self.infection = None 
+                return False
+            else:
+                self.is_vaccinated = True
+                self.infection = None 
+                return True
+        return False
         
 if __name__ == "__main__":
     vaccinated_person = Person(1, True)
@@ -46,9 +46,6 @@ if __name__ == "__main__":
     for i in range(1, 101):
         people.append(Person(i, False, virus))
 
-    for person in people:
-        survived = person.did_survive_infection()
-
     did_survive = 0
     did_not_survive = 0
 
@@ -58,17 +55,17 @@ if __name__ == "__main__":
         else:
             did_not_survive += 1
 
-print(f"Survived: {did_survive}, Did not survive: {did_not_survive}")
-print(f"Mortality rate: {virus.mortality_rate}, Approx deaths: {did_not_survive / len(people):.2f}")
+    print(f"Survived: {did_survive}, Did not survive: {did_not_survive}")
+    print(f"Mortality rate: {virus.mortality_rate}, Approx deaths: {did_not_survive / len(people):.2f}")
 
-# Stretch challenge! 
-uninfected_people = [Person(i, False) for i in range(101, 201)]
-newly_infected = 0
+    # Stretch challenge! 
+    uninfected_people = [Person(i, False) for i in range(101, 201)]
+    newly_infected = 0
 
-for person in uninfected_people:
-    if random.random() < virus.infection_rate:
-        person.infection = virus
-        newly_infected += 1
+    for person in uninfected_people:
+        if random.random() < virus.infection_rate:
+            person.infection = virus
+            newly_infected += 1
 
-print(f"Newly Infected: {newly_infected}, Not Infected: {len(uninfected_people) - newly_infected}")
-print(f"Infection rate: {virus.infection_rate}, Approx infections: {newly_infected / len(uninfected_people):.2f}")
+    print(f"Newly Infected: {newly_infected}, Not Infected: {len(uninfected_people) - newly_infected}")
+    print(f"Infection rate: {virus.infection_rate}, Approx infections: {newly_infected / len(uninfected_people):.2f}")
