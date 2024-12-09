@@ -2,7 +2,7 @@ import random
 from virus import Virus
 
 class Person(object):
-    def __init__(self, _id, is_vaccinated, infection = None):
+    def __init__(self, _id, is_vaccinated, infection=None):
         self._id = _id  
         self.is_vaccinated = is_vaccinated
         self.infection = infection 
@@ -21,7 +21,7 @@ class Person(object):
                 self.infection = None 
                 return True
         return False
-        
+
 if __name__ == "__main__":
     vaccinated_person = Person(1, True)
     assert vaccinated_person._id == 1
@@ -63,9 +63,9 @@ if __name__ == "__main__":
     newly_infected = 0
 
     for person in uninfected_people:
-        if random.random() < virus.infection_rate:
+        if random.random() < virus.repro_rate:
             person.infection = virus
             newly_infected += 1
 
     print(f"Newly Infected: {newly_infected}, Not Infected: {len(uninfected_people) - newly_infected}")
-    print(f"Infection rate: {virus.infection_rate}, Approx infections: {newly_infected / len(uninfected_people):.2f}")
+    print(f"Infection rate: {virus.repro_rate}, Approx infections: {newly_infected / len(uninfected_people):.2f}")
