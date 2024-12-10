@@ -1,0 +1,10 @@
+
+Simulation Metadata
+-------------------
+Initial Population Size  : 1000
+Vaccinated Percentage    : 10%
+Virus Name               : Sniffles
+Reproduction Rate        : 0.5
+Mortality Rate           : 0.12
+Initial Infected         : 10
+

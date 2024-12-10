@@ -1,63 +1,57 @@
 import unittest
 from simulation import Simulation
-from person import Person
 from virus import Virus
 
-class SimulationTest(unittest.TestCase):
+class TestSimulation(unittest.TestCase):
+
     def setUp(self):
-        self.virus = Virus("TestVirus", 0.5, 0.5)
-        self.sim = Simulation(self.virus, 100, 0.5, 10)
+        self.virus = Virus("Sniffles", 0.5, 0.12)
+        self.pop_size = 1000
+        self.vacc_percentage = 0.1
+        self.initial_infected = 10
+        self.simulation = Simulation(self.virus, self.pop_size, self.vacc_percentage, self.initial_infected)
 
-    def test_create_population(self):
-        self.assertEqual(len(self.sim.population), 100)
+    def test_population_creation(self):
+        vaccinated_count = int(self.pop_size * self.vacc_percentage)
+        unvaccinated_count = self.pop_size - vaccinated_count - self.initial_infected
+        infected_count = self.initial_infected
 
-        infected_count = sum(1 for person in self.sim.population if person.infection)
-        self.assertEqual(infected_count, 10)
+        vaccinated = sum(1 for person in self.simulation.population if person.is_vaccinated)
+        unvaccinated = sum(1 for person in self.simulation.population if not person.is_vaccinated and person.infection is None)
+        infected = sum(1 for person in self.simulation.population if person.infection is not None)
 
-    def test_simulation_should_continue_true(self):
-        self.assertTrue(self.sim._simulation_should_continue())
+        self.assertEqual(vaccinated, vaccinated_count)
+        self.assertEqual(unvaccinated, unvaccinated_count)
+        self.assertEqual(infected, infected_count)
 
-    def test_simulation_should_continue_false_all_dead(self):
-        for person in self.sim.population:
-            person.is_alive = False
-        self.assertFalse(self.sim._simulation_should_continue())
+    def test_simulation_should_continue(self):
+        self.simulation._simulation_should_continue()
+        should_continue = self.simulation._simulation_should_continue()
 
-    def test_simulation_should_continue_false_all_vaccinated(self):
-        for person in self.sim.population:
-            if person.is_alive:
-                person.is_vaccinated = True
-        self.assertFalse(self.sim._simulation_should_continue())
+        self.assertTrue(should_continue)
 
-    def test_interaction_vaccinated(self):
-        infected_person = Person(1, False, self.virus)
-        vaccinated_person = Person(2, True)
-        self.sim.interaction(infected_person, vaccinated_person)
-        self.assertNotIn(vaccinated_person, self.sim.newly_infected)
+    def test_time_step(self):
+        initial_infected = self.simulation.current_infected
+        initial_total_infected = self.simulation.total_infected
 
-    def test_interaction_infected(self):
-        infected_person = Person(1, False, self.virus)
-        already_infected_person = Person(2, False, self.virus)
-        self.sim.interaction(infected_person, already_infected_person)
-        self.assertNotIn(already_infected_person, self.sim.newly_infected)
+        self.simulation.time_step()
 
-    def test_interaction_unvaccinated(self):
-        infected_person = Person(1, False, self.virus)
-        unvaccinated_person = Person(2, False)
-        self.sim.interaction(infected_person, unvaccinated_person)
+        self.assertNotEqual(self.simulation.current_infected, initial_infected)
+        self.assertNotEqual(self.simulation.total_infected, initial_total_infected)
 
-    def test_infect_newly_infected(self):
-        infected_person_1 = Person(1, False, self.virus)
-        infected_person_2 = Person(2, False, self.virus)
-        infected_person_3 = Person(3, False, self.virus)
+    def test_interaction(self):
+        person = self.simulation.get_random_person()
+        infected_person = self.simulation.get_random_person()
+        
+        initial_newly_infected = len(self.simulation.newly_infected)
+        
+        self.simulation.interaction(infected_person, person)
+        
+        self.assertGreater(len(self.simulation.newly_infected), initial_newly_infected)
 
-        self.sim.newly_infected = [infected_person_1, infected_person_2, infected_person_3]
+    def test_simulation_completion(self):
+        self.simulation.run()
+        self.assertEqual(self.simulation._simulation_should_continue(), False)
 
-        self.sim._infect_newly_infected()
-
-        for person in self.sim.newly_infected:
-            self.assertIsNotNone(person.infection)  
-
-        self.assertEqual(len(self.sim.newly_infected), 0)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
