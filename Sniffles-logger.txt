@@ -1,0 +1,29 @@
+Before simulation:
+Population Size: 1000
+Vaccination Percentage: 0.1
+Virus Name: Sniffles
+Mortality Rate: 0.12
+Basic Reproduction Number: 0.5
+Initial Infected: 10
+----------------------------------------------------------------------
+
+Step 1 Interaction Log:
+Number of Interactions: 1000
+New Infections: 467
+New Fatalities: 1
+Total Vaccinated: 9
+----------------------------------------------------------------------
+
+Step 2 Interaction Log:
+Number of Interactions: 36700
+New Infections: 9800
+New Fatalities: 45
+Total Vaccinated: 322
+----------------------------------------------------------------------
+
+Step 3 Interaction Log:
+Number of Interactions: 90000
+New Infections: 9267
+New Fatalities: 116
+Total Vaccinated: 784
+----------------------------------------------------------------------
