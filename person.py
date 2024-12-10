@@ -21,7 +21,6 @@ class Person(object):
                 return False
         return self.is_alive
 
-
 if __name__ == "__main__":
     virus = Virus("Dysentery", 0.7, 0.2)
 
