@@ -1,0 +1,35 @@
+Q1: What were the inputs you gave the simulation?
+-------------------------------------------------
+Population size     : 1000
+Percent vaccinated  : 10%
+Virus name          : Sniffles
+Mortality rate      : 0.12
+Reproductive rate   : 0.5
+
+Q2: What percentage of the population became infected at some point before the virus burned out?
+-------------------------------------------------
+Total infections    : 418
+Percentage infected : 41.8%
+Calculated as (Total Infections / Population Size) * 100 = (418 / 1000) * 100 = 41.8%
+
+Q3: What percentage of the population died from the virus?
+-------------------------------------------------
+Total deaths        : 103
+Percentage died     : 10.3%
+Calculated as (Total Deaths / Population Size) * 100 = (103 / 1000) * 100 = 10.3%
+
+Q4: Out of all interactions sick individuals had during the entire simulation, how many times, in total, did a vaccination save someone from potentially becoming infected?
+-------------------------------------------------
+Total lives saved by vaccination: 797
+
+Breakdown:
+----------
+Step 1: 1
+Step 2: 3 - 1 = 2
+Step 3: 6 - 3 = 3
+Step 4: 17 - 6 = 11
+Step 5: 432 - 17 = 415
+Step 6: 797 - 432 = 365
+Calculated as 1 + 2 + 3 + 11 + 415 + 365 = 797.
+
+These increments (1, 2, 3, 11, 415, 365) represent the number of times vaccinations potentially saved individuals from infection, assuming one save per vaccination increment.
