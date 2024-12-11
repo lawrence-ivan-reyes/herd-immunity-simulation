@@ -16,7 +16,6 @@ The Virus Simulation program models the spread of a virus within a population, t
 ---
 
 ### ❗️ How To Use
-
 1. **Clone the repository:**
 - **HTTPS**: `git clone https://github.com/lawrence-ivan-reyes/herd-immunity-simulation.git`  
 - **SSH**: `git clone git@github.com:lawrence-ivan-reyes/herd-immunity-simulation.git`  
@@ -35,8 +34,9 @@ You can customize the simulation's parameters in the `simulation.py` file by adj
 `logger.txt`: Logs the simulation's metadata and interaction summaries for each time step.
 
 4. **Data Visualization**
+
 After running the simulation, it will generate a plot showing the progression of infections, deaths, and vaccinations over time (requires `matplotlib`).
-- If you dnot have `matplotlib` installed, run `pip install matplotlib` in your terminal before proceeding to run `simulation.py`.
+- If you do not have `matplotlib` installed, run `pip install matplotlib` in your terminal before proceeding to run `simulation.py`.
 
 ---
 
