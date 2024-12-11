@@ -40,13 +40,13 @@ class TestSimulation(unittest.TestCase):
         self.assertNotEqual(self.simulation.total_infected, initial_total_infected)
 
     def test_interaction(self):
+        infected_person = next((p for p in self.simulation.population if p.infection is not None), None)
         person = self.simulation.get_random_person()
-        infected_person = self.simulation.get_random_person()
         
         initial_newly_infected = len(self.simulation.newly_infected)
-        
+
         self.simulation.interaction(infected_person, person)
-        
+
         self.assertGreater(len(self.simulation.newly_infected), initial_newly_infected)
 
     def test_simulation_completion(self):
