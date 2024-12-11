@@ -1,58 +1,82 @@
 
 Simulation Metadata
 -------------------
-Initial Population Size  : 1000
-Vaccinated Percentage    : 10%
-Virus Name               : Sniffles
-Reproduction Rate        : 0.5
-Mortality Rate           : 0.12
-Initial Infected         : 10
-
+Date                   : 2024-12-11 17:17:39
+Initial Population Size: 1000
+Initial Infected       : 10
+Virus Name             : Sniffles
+Reproductive Rate      : 0.5
+Mortality Rate         : 0.12
+Vaccinated Percentage  : 10%
 
 Step 1 Summary
 ---------------------------
-Total Interactions       : 100
-Total People Dead        : 0
-Total Vaccinated         : 1
-Total Infections         : 62
-
+New Infections          : 0
+New Deaths              : 0
+Current Infected        : 61
+Total Interactions      : 100
+Total Vaccinated        : 1
+---------------------------
+Total Living            : 1000
+Total Dead              : 0
+Total Vaccinated        : 1
 
 Step 2 Summary
 ---------------------------
-Total Interactions       : 300
-Total People Dead        : 0
-Total Vaccinated         : 3
-Total Infections         : 154
-
+New Infections          : 0
+New Deaths              : 1
+Current Infected        : 151
+Total Interactions      : 300
+Total Vaccinated        : 2
+---------------------------
+Total Living            : 999
+Total Dead              : 1
+Total Vaccinated        : 2
 
 Step 3 Summary
 ---------------------------
-Total Interactions       : 700
-Total People Dead        : 0
-Total Vaccinated         : 7
-Total Infections         : 314
-
+New Infections          : 0
+New Deaths              : 1
+Current Infected        : 302
+Total Interactions      : 700
+Total Vaccinated        : 6
+---------------------------
+Total Living            : 999
+Total Dead              : 1
+Total Vaccinated        : 6
 
 Step 4 Summary
 ---------------------------
-Total Interactions       : 1800
-Total People Dead        : 0
-Total Vaccinated         : 18
-Total Infections         : 619
-
+New Infections          : 0
+New Deaths              : 2
+Current Infected        : 597
+Total Interactions      : 1600
+Total Vaccinated        : 14
+---------------------------
+Total Living            : 998
+Total Dead              : 2
+Total Vaccinated        : 14
 
 Step 5 Summary
 ---------------------------
-Total Interactions       : 38500
-Total People Dead        : 50
-Total Vaccinated         : 335
-Total Infections         : 515
-
+New Infections          : 0
+New Deaths              : 42
+Current Infected        : 562
+Total Interactions      : 33800
+Total Vaccinated        : 296
+---------------------------
+Total Living            : 958
+Total Dead              : 42
+Total Vaccinated        : 296
 
 Step 6 Summary
 ---------------------------
-Total Interactions       : 90000
-Total People Dead        : 103
-Total Vaccinated         : 797
-Total Infections         : 0
-
+New Infections          : 0
+New Deaths              : 109
+Current Infected        : 0
+Total Interactions      : 90000
+Total Vaccinated        : 791
+---------------------------
+Total Living            : 891
+Total Dead              : 109
+Total Vaccinated        : 791

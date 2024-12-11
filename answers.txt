@@ -1,6 +1,5 @@
 Q1: What were the inputs you gave the simulation? 
     (Population size, percent vaccinated, virus name, mortality rate, reproductive rate)
-
 A1:
     - Population size: 1000
     - Percent vaccinated: 10%
@@ -9,32 +8,15 @@ A1:
     - Reproductive rate: 0.5
 
 Q2: What percentage of the population became infected at some point before the virus burned out?
-
 A2:
-    - Total infections: 619 (at Step 4 before virus burned out)
-    - Total population: 1000
-    - Percentage infected:
-      (Total infections / Total population) * 100
-      (619 / 1000) * 100 = 61.9%
+    - Total Infected: 791 individuals
+    - Percentage of population infected: 79.1%
 
 Q3: What percentage of the population died from the virus?
-
 A3:
-    - Total deaths: 103
-    - Total population: 1000
-    - Percentage died:
-      (Total deaths / Total population) * 100
-      (103 / 1000) * 100 = 10.3%
+    - Total Dead: 109 individuals
+    - Percentage of population died: 10.9%  
 
 Q4: Out of all interactions sick individuals had during the entire simulation, how many times, in total, did a vaccination save someone from potentially becoming infected?
-
 A4:
-    - Vaccination saves (based on logs): At various steps, the total number of vaccinated increased, which saved potential infections.
-      - Step 1: 1
-      - Step 2: 3 - 1 = 2
-      - Step 3: 7 - 3 = 4
-      - Step 4: 18 - 7 = 11
-      - Step 5: 335 - 18 = 317
-      - Step 6: 797 - 335 = 462
-    - Sum of saved interactions (Vaccine saves):
-      1 + 2 + 4 + 11 + 317 + 462 = 797
+    - Total Vaccine Saves: 791 times

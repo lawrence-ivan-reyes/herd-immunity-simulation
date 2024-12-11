@@ -1,0 +1,20 @@
+
+Simulation Summary
+-------------------
+Date                   : 2024-12-11 17:18:00
+Initial Population Size: 1000
+Initial Infected       : 10
+Virus Name             : Sniffles
+Reproductive Rate      : 0.5
+Mortality Rate         : 0.12
+Vaccinated Percentage  : 10%
+
+Final Statistics:
+-----------------
+Total Living           : 891
+Total Dead             : 109
+Total Infected         : 900
+Total Vaccinated       : 791
+Total Interactions     : 90000
+Total Vaccine Saves    : 0
+Why Simulation Ended   : Simulation stopped due to no more unvaccinated, alive people remaining.

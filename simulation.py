@@ -2,7 +2,7 @@ import random
 from person import Person
 from logger import Logger
 from virus import Virus
-import matplotlib.pyplot as plt # stretch challenge #3 (graphing visualization with matplotlib)
+import matplotlib.pyplot as plt  # stretch challenge #3 (graphing visualization with matplotlib)
 
 class Simulation(object):
     def __init__(self, virus, pop_size, vacc_percentage, initial_infected=1):
@@ -77,10 +77,12 @@ class Simulation(object):
             self.time_step()
             should_continue = self._simulation_should_continue()
             self.time_step_counter += 1
-            self.logger.log_interactions(self.time_step_counter, self.total_interactions, self.death_count, self.total_vaccinated, self.current_infected)
+            self.logger.log_interactions(self.pop_size, self.time_step_counter, len(self.newly_infected), self.death_count, self.total_vaccinated, self.current_infected, self.total_interactions)
 
         # stretch challenge #3 (graphing visualization with matplotlib): visualization code
         self.plot_results()
+
+        self.logger.log_simulation_summary(self.pop_size, self.death_count, self.total_vaccinated, self.total_infected, self.time_step_counter, self.total_lives_saved_with_vaccine, self.virus, self.initial_infected, self.vacc_percentage, self.total_interactions)
 
         print(f"Simulation complete. Time steps: {self.time_step_counter}")
         print(self.time_step_counter, self.total_interactions, self.death_count, self.total_vaccinated, self.current_infected)
