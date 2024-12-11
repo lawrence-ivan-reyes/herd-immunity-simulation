@@ -2,6 +2,8 @@ import random
 from person import Person
 from logger import Logger
 from virus import Virus
+import matplotlib.pyplot as plt # stretch challenge #3 (graphing visualization with matplotlib)
+
 
 class Simulation(object):
     def __init__(self, virus, pop_size, vacc_percentage, initial_infected=1):
@@ -24,6 +26,12 @@ class Simulation(object):
 
         self.logger = Logger("logger.txt")
         self.population = self._create_population()
+
+        # stretch challenge #3 (graphing visualization with matplotlib): track simulation data over time
+        self.time_steps = []
+        self.infected_over_time = []
+        self.deaths_over_time = []
+        self.vaccinated_over_time = []
 
     def _create_population(self):
         population_list = []
@@ -72,6 +80,9 @@ class Simulation(object):
             self.time_step_counter += 1
             self.logger.log_interactions(self.time_step_counter, self.total_interactions, self.death_count, self.total_vaccinated, self.current_infected)
 
+        # stretch challenge #3 (graphing visualization with matplotlib): visualization code
+        self.plot_results()
+
         print(f"Simulation complete. Time steps: {self.time_step_counter}")
         print(self.time_step_counter, self.total_interactions, self.death_count, self.total_vaccinated, self.current_infected)
 
@@ -91,6 +102,12 @@ class Simulation(object):
                     self.current_infected -= 1
 
         self._infect_newly_infected()
+
+        # stretch challenge #3 (graphing visualization with matplotlib): tracking data after each time step
+        self.time_steps.append(self.time_step_counter)
+        self.infected_over_time.append(self.current_infected)
+        self.deaths_over_time.append(self.death_count)
+        self.vaccinated_over_time.append(self.total_vaccinated)
 
     def get_random_person(self):
         selected_person = random.choice(self.population)
@@ -116,6 +133,28 @@ class Simulation(object):
             self.population.append(person)
 
         self.newly_infected = []
+
+    # stretch challenge #3 (graphing visualization with matplotlib): method to plot results
+    def plot_results(self):
+        plt.figure(figsize=(10, 6))
+
+        # infections over time
+        plt.plot(self.time_steps, self.infected_over_time, label='Infected', color='red')
+
+        # deaths over time
+        plt.plot(self.time_steps, self.deaths_over_time, label='Deaths', color='black')
+
+        # vaccinations over time
+        plt.plot(self.time_steps, self.vaccinated_over_time, label='Vaccinated', color='green')
+
+        # labels, title, and legend
+        plt.title('Simulation Results Over Time')
+        plt.xlabel('Time Steps')
+        plt.ylabel('Population Count')
+        plt.legend()
+
+        # display plot
+        plt.show()
 
 if __name__ == "__main__":
     virus_name = "Sniffles"
