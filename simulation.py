@@ -4,7 +4,6 @@ from logger import Logger
 from virus import Virus
 import matplotlib.pyplot as plt # stretch challenge #3 (graphing visualization with matplotlib)
 
-
 class Simulation(object):
     def __init__(self, virus, pop_size, vacc_percentage, initial_infected=1):
         self.virus = virus

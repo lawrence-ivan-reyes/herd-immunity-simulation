@@ -14,7 +14,7 @@ Step 1 Summary
 Total Interactions       : 100
 Total People Dead        : 0
 Total Vaccinated         : 1
-Total Infections         : 54
+Total Infections         : 58
 
 
 Step 2 Summary
@@ -22,7 +22,7 @@ Step 2 Summary
 Total Interactions       : 300
 Total People Dead        : 0
 Total Vaccinated         : 3
-Total Infections         : 148
+Total Infections         : 149
 
 
 Step 3 Summary
@@ -30,23 +30,23 @@ Step 3 Summary
 Total Interactions       : 700
 Total People Dead        : 1
 Total Vaccinated         : 6
-Total Infections         : 319
+Total Infections         : 316
 
 
 Step 4 Summary
 ---------------------------
-Total Interactions       : 1900
-Total People Dead        : 2
-Total Vaccinated         : 17
-Total Infections         : 632
+Total Interactions       : 1800
+Total People Dead        : 3
+Total Vaccinated         : 15
+Total Infections         : 620
 
 
 Step 5 Summary
 ---------------------------
-Total Interactions       : 41500
-Total People Dead        : 55
-Total Vaccinated         : 360
-Total Infections         : 485
+Total Interactions       : 38800
+Total People Dead        : 50
+Total Vaccinated         : 338
+Total Infections         : 512
 
 
 Step 6 Summary
