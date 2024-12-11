@@ -22,6 +22,7 @@ The Virus Simulation program models the spread of a virus within a population, t
 - **GitHub CLI**: `gh repo clone lawrence-ivan-reyes/herd-immunity-simulation` 
 
 2. **Run the Program:** 
+
 `python3 simulation.py`
 
 You can customize the simulation's parameters in the `simulation.py` file by adjusting values such as:
@@ -31,6 +32,7 @@ You can customize the simulation's parameters in the `simulation.py` file by adj
 - Initial number of infected individuals.
 
 3. **Log Files**
+
 `logger.txt`: Logs the simulation's metadata and interaction summaries for each time step.
 
 4. **Data Visualization**
@@ -42,7 +44,7 @@ After running the simulation, it will generate a plot showing the progression of
 
 ### 💻 Code Structure
 **Main Program Files**
-- **`simulation.py`**: The main file that runs the entire simulation. Contains logic for time steps, interactions, infection spread, and logging.
+- **`simulation.py`**: The main file that runs the entire simulation. Contains logic for time steps, interactions, infection spread, and logging with the `Simulation` class.
 - **`person.py`**: Defines the `Person` class, representing individuals in the population. Handles infection status, survival, and vaccination.
 - **`virus.py`**: Defines the `Virus` class, representing the virus being simulated, with attributes like reproduction and mortality rates.
-- **`logger.py`**: Provides logging functionality. Logs simulation metadata, time step summaries, and final results.
+- **`logger.py`**: Provides logging functionality with the `Logger` class. Logs simulation metadata, time step summaries, and final results.
