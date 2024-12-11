@@ -58,6 +58,7 @@ if __name__ == "__main__":
     print(f"People who survived: {survived}")
     print(f"People who did not survive: {did_not_survive}")
 
+    # Stretch challenge!
     uninfected_people = [Person(i, False) for i in range(101, 201)]
     for person in uninfected_people:
         if random.random() < virus.infection_rate:
